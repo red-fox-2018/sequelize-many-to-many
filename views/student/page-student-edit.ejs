@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Express CRUD</title>
+</head>
+<style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+  <form action="/student/update/<%= student.id %>" method="POST">
+    <fieldset>
+    <legend><h2>Student Edit</h2></legend>
+    firstName:
+    <input type="text" name="firstName" value="<%= student.firstName %>"> <br/>
+    lastName:
+    <input type="text" name="lastName" value="<%= student.lastName %>"> <br/>
+    Email:
+    <input type="text" name="email" value="<%= student.email %>"> <br/>
+    <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+</body>
+</html>

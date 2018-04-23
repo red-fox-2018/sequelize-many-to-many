@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Subject Add</title>
+</head>
+<body>
+
+  <%if(typeof err != "undefined"){%>
+    <div style="color:red;"> <%= err %> </div>
+  <% } %>
+  
+  <form action="/student/add" method="post">
+    <fieldset>
+        <legend><h2>Student Insert</h2></legend>
+        First name:<br>
+        <input type="text" name="firstName"><br>
+        Last name:<br>
+        <input type="text" name="lastName"><br>
+        Email:<br>
+        <input type="text" name="email"><br>
+        <input type="submit">
+    </fieldset>
+  </form>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Express CRUD</title>
+</head>
+<style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+  <form action="/teacher/update/<%= teacher.id %>" method="POST">
+    <fieldset>
+    <legend><h2>Teacher Edit</h2></legend>
+    firstName:
+    <input type="text" name="firstName" value="<%= teacher.firstName %>"> <br/>
+    lastName:
+    <input type="text" name="lastName" value="<%= teacher.lastName %>"> <br/>
+    Email:
+    <input type="text" name="email" value="<%= teacher.email %>"> <br/>
+    Subject:<br>
+    <select name="SubjectId">
+      <% subjects.forEach(subject => { %>
+        <option value="<%= subject.id %>"> <%= subject.name %> </option>
+      <% }) %>
+    </select> <br/> <br/>
+    <input type="submit" value="Submit">
+    </fieldset>
+  </form>
+</body>
+</html>
