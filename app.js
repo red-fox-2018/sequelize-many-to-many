@@ -11,7 +11,7 @@ const subjectRouter = require('./routes/subject');
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // @router definition
 app.use('/teacher', teacherRouter);
