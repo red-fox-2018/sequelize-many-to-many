@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+</head>
+
+<body>
+
+    <p>First Name:
+        <%=student.first_name%>
+    </p>
+    <p>Last Name:
+        <%=student.last_name%>
+    </p>
+    <p>Email Name:
+        <%=student.email%>
+    </p>
+    <form action="givescore" method="post">
+       Score : <input type="text" name="score" id="">
+        <br>
+        <br>
+        <input type="submit" class="submit" value="Give Score">
+    </form>
+</body>
+
+</html>

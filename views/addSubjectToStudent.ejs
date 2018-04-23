@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page Title</title>
+</head>
+<body>
+    
+    <p>First Name: <%=student.first_name%></p>
+    <p>Last Name: <%=student.last_name%></p>
+    <p>Email Name: <%=student.email%></p>
+    <form action="addsubject" method="post" >
+        <select name="name" size='1'>
+            <option value="Fisika">Fisika</option>
+            <option value="Ekonomi">Ekonomi</option>
+        </select><br><br>
+        <input type="submit" class="submit" value="Add Subject">
+    </form>
+</body>
+</html>
