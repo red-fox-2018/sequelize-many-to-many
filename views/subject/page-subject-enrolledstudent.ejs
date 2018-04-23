@@ -27,7 +27,11 @@ tr:nth-child(even) {
     <% enrolled.Students.forEach(function(student){ %>
         <tr>
           <td><%- student.firstName + ' ' + student.lastName %></td>
-          <td><%- student.StudentSubject.StudentScore %></td>
+          <%if (student.StudentSubject.StudentScore) { %>
+            <td><%- student.StudentSubject.StudentScore %></td>
+          <% } else { %>
+            <td><a href="/subject/<%= enrolled.id %>/givescore/<%= student.id %>">Give Score</td>
+          <% } %>
         </tr>
     <% }); %>
   </table>

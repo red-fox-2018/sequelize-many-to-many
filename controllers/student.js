@@ -48,6 +48,16 @@ class StudentController {
   static addSubject(StudentId, SubjectId) {
     return StudentSubject.create({ StudentId, SubjectId });
   }
+  static addScore(StudentId, SubjectId, StudentScore) {
+    return StudentSubject.find({
+      where: {
+        StudentId: StudentId,
+        SubjectId: SubjectId
+      }
+    }).then(result => {
+      return result.update({ StudentScore });
+    });
+  }
 }
 
 module.exports = StudentController;

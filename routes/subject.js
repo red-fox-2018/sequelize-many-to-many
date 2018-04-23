@@ -2,15 +2,45 @@
 const express = require('express')
 const router = express.Router()
 const { SubjectController } = require('./../controllers');
+const { StudentController } = require('./../controllers');
 
-// @todo routing
-// GET subjects/:id/enrolledstudents
 // GET subjects/:id/givescore
-// POST subjects/:id/                   handle input data
+router.get('/:SubjectId/givescore/:StudentId', (req, res) => {
+  let StudentId = req.params.StudentId;
+  let SubjectId = req.params.SubjectId;
 
-router.get('/enrolledstudents', (req, res) => {
-  SubjectController.getAllMultiple().then(enrolled => {
-    res.send(enrolled);
+  StudentController.findById(StudentId)
+    .then(student => {
+      // res.send(student)
+      SubjectController.findById(SubjectId)
+      .then(subject => {
+        // res.send({ student, subject })
+        res.render('subject/page-subject-give-score', { student, subject });
+      });
+    });
+});
+
+// POST subjects/:id/givescore                   handle input data
+router.post('/:SubjectId/givescore/:StudentId', (req, res) => {
+  let StudentId = req.params.StudentId;
+  let SubjectId = req.params.SubjectId;
+  let StudentScore = req.body.StudentScore;
+
+  StudentController.addScore(StudentId, SubjectId, StudentScore)
+    .then(() => {
+      res.redirect('/teacher');
+    })
+    .catch(err => {
+      console.log(err.message);
+      res.redirect('/teacher');
+    });
+});
+
+// GET subjects/:id/enrolledstudents
+router.get('/:id/enrolledstudents', (req, res) => {
+  let SubjectId = req.params.id;
+  SubjectController.getAllMultiple(SubjectId).then(enrolled => {
+    res.render('subject/page-subject-enrolledstudent', { enrolled });
   });
 });
 

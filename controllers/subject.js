@@ -7,14 +7,17 @@ class SubjectController {
   /**
    * getAll()
    */
-  static getAllMultiple() {
-    return Subject.findAll({
+  static getAllMultiple(SubjectId) {
+    return Subject.find({
       include: [
         { model: Student }
       ],
       order: [
         ['id', 'ASC']
-      ]
+      ],
+      where: {
+        id: SubjectId
+      }
     });    
   }
   /**
