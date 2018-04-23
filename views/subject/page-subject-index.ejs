@@ -24,6 +24,7 @@ tr:nth-child(even) {
     <tr>
       <th>Name</th>
       <th>Teacher</th>
+      <th>Enrolled student</th>
       <th>Delete</th>
       <th>Update</th>
     </tr>
@@ -41,6 +42,7 @@ tr:nth-child(even) {
               -
             <% } %>
           </td>
+          <td><a href="/subject/update/<%= subject.id %>">Edit</a></td>
           <td><a href="/subject/delete/<%= subject.id %>" onclick="return confirm('Delete this data?')">Delete</a></td>
           <td><a href="/subject/update/<%= subject.id %>">Edit</a></td>
         </tr>
