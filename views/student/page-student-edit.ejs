@@ -17,6 +17,8 @@ tr:nth-child(even) {
 }
 </style>
 <body>
+  <%- include('./../_header')%>
+
   <form action="/student/update/<%= student.id %>" method="POST">
     <fieldset>
     <legend><h2>Student Edit</h2></legend>
