@@ -2,10 +2,39 @@
 const express = require('express')
 const router = express.Router()
 const { StudentController } = require('./../controllers');
+const { SubjectController } = require('./../controllers');
 
 // @todo routing
+
 // GET /students/:id/addsubject     show data student
+router.get('/:id/addsubject', (req, res) => {
+  let id = req.params.id;
+  StudentController.findById(id)
+    .then(student => {
+      SubjectController.getAll()
+        .then(subjects => {
+          res.render('student/page-student-add-subject', { student, subjects });
+        });
+    })
+    .catch(err => {
+      console.log(err.message);
+      res.redirect('/student');
+    });
+});
+
 // POST /students/:id/addsubject    handle input form
+router.post('/:id/addsubject', (req, res) => {
+  let StudentId = req.params.id;
+  let SubjectId = req.body.SubjectId;
+  StudentController.addSubject(StudentId, SubjectId)
+    .then(() => {
+      res.redirect('/student');
+    })
+    .catch((err) => {
+      console.log(err);
+      res.redirect('/student');
+    })
+});
 
 // GET /student | GET
 router.get('/', (req, res) => {

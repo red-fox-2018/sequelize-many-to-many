@@ -1,5 +1,6 @@
 
 const { Student } = require('./../models');
+const { StudentSubject } = require('./../models');
 
 class StudentController {
   /**
@@ -43,6 +44,9 @@ class StudentController {
       .catch(err => {
         console.log(err);
       });
+  }
+  static addSubject(StudentId, SubjectId) {
+    return StudentSubject.create({ StudentId, SubjectId });
   }
 }
 

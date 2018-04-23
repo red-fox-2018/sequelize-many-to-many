@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Express CRUD</title>
+</head>
+<style>
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+</style>
+<body>
+    <h2>Add Subject</h2>
+    <hr>
+    <table>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+        </tr>
+        <tr>
+          <td><%- student.firstName %></td>
+          <td><%- student.lastName %></td>
+          <td><%- student.email %></td>
+        </tr>
+    </table>
+    <form action="/student/<%= student.id %>/addsubject" method="post">
+      <fieldset>
+          <legend><h2>Add subject</h2></legend>
+          <select name="SubjectId">
+            <% subjects.forEach(subject => { %>
+              <option value="<%= subject.id %>"> <%= subject.name %> </option>
+            <% }) %>
+          </select> <br/> <br/>
+          <input type="submit">
+      </fieldset>
+    </form>
+</body>
+</html>
