@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Edit Data</title>
+  </head>
+  <body>
+    <h1>Edit Subject Data</h1>
+    <h3><a href="/subject">show all subject</a></h3>
+      <form action="/subject/edit/<%= subjectData.id %>" method="post">
+        <p>Subject Name:</p>
+        <input type="text" name="subject_name" value="<%= subjectData.subject_name %>">
+        <input type="submit" onclick="alert('Edit Data Success!')" value="Save">
+      </form>
+  </body>
+</html>

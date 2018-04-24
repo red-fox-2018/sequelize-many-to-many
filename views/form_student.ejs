@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Student Register</title>
+  </head>
+  <body>
+    <h1>Register Form</h1>
+    <% if(typeof message !== 'undefined') { %>
+      <% message.forEach((err) => { %>
+        <p style="color:red"><%= err.message %></p>
+      <% }) %>
+    <% } %>
+    <h3><a href="/student">show all student</a></h3>
+    <form action="/student/add" method="POST">
+      <p>First Name:</p>
+      <input type="text" name="first_name" value="">
+      <p>Last Name:</p>
+      <input type="text" name="last_name" value="">
+      <p>Email:</p>
+      <input type="text" name="email" value=""><br>
+      <input type="submit" value="Sign Up">
+    </form>
+  </body>
+</html>
