@@ -23,7 +23,8 @@
             <tr>
               <th>No</th>
               <th>Subject</th>
-              <th class="col-md-3">Action</th>
+              <th>Teachers</th>
+              <th class="col-md-3">Actions</th>
             </tr>
           </thead>
 
@@ -33,10 +34,15 @@
                 <td><%= i+1 %></td>
                 <td> <%= subject.subject_name%> </td>
                 <td>
-                  <a href='/subjects/<%= subject.id %>/teachers'>View Teachers</a> |
-                  <a href='/subjects/edit/<%= subject.id %>'>Edit</a> |
-                  <a class="text-danger" href='/subjects/delete/<%= subject.id %>' onclick="return confirm('delete this subject?')"> delete</a>
+                  <% subject.Teachers.forEach((teacher, i) => { %>
+                    <%= `${i+1}. ${teacher.first_name} ${teacher.last_name}` %> <br />
+                  <% }) %>
                 </td>
+                <td> <a href='/subjects/<%= subject.id %>/enrolledstudent'>Enrollesd Student</a> </td>
+                <!-- <td>
+                  <a href='/subjects/edit/<%= subject.id %>'>Edit</a>
+                  <a class="text-danger" href='/subjects/delete/<%= subject.id %>' onclick="return confirm('delete this subject?')"> delete</a>
+                </td> -->
               </tr>
             <% }) %>
           </tbody>

@@ -14,6 +14,12 @@ subject.get('/edit/:id', Controller.updateGet)
 
 subject.post('/edit/:id', Controller.UpdatePost)
 
+subject.get('/:id/enrolledstudent', Controller.enrolled)
+
+subject.get('/:id/givescore/:studentid', Controller.givescoreGet)
+
+subject.post('/:id/givescore/:studentid', Controller.givescorePost)
+
 subject.get('/delete/:id', Controller.delete)
 
 

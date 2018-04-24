@@ -1,0 +1,35 @@
+<%- include ../partial/header.ejs%>
+
+  <div class="container mt-5 col-sm-8">
+    <h2>Give Score</h2>
+    <h4><%= subject.subject_name %></h4>
+
+    <div class="table-responsive-sm">
+      <table class="table table-striped">
+        <tr>
+          <td>First Name</td>
+          <td><%= subject.Students[0].first_name %></td>
+        </tr>
+        <tr>
+          <td>last Name</td>
+          <td><%= subject.Students[0].last_name %></td>
+        </tr>
+        <tr>
+          <td>Email</td>
+          <td><%= subject.Students[0].email %></td>
+        </tr>
+      </table>
+    </div>
+
+    <form action="/subjects/<%= subject.id %>/givescore/<%= subject.Students[0].id %>" method="POST">
+
+      <div class="form-group">
+        <label for="score">Score :</label>
+        <input type="number" max ="100" id = "score" name= "score">
+      </div>
+
+      <input type="submit" class="btn btn-primary" value="Submit">
+    </form>
+  </div>
+
+<%- include ../partial/footer.ejs%>

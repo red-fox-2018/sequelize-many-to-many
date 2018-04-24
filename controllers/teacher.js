@@ -4,7 +4,10 @@ class Controller {
     Teacher.findAll({
       include: [{
         model: Subject
-      }]
+      }],
+      order: [
+        ['createdAt', 'DESC']
+      ]
     })
     .then( teachers => {
       // console.log(teachers);

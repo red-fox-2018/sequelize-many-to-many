@@ -12,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
         },
         isUnique: function(value, next){
 
-          Teacher.find({
+          Student.find({
             where: {email: value},
             attributes: ['id']
           })
@@ -29,15 +29,19 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     hooks: {
-      beforeCreate: (teacher, option) => {
-        if(teacher.last_name == ''){
-          teacher.last_name = 'Hacktiv8'
+      beforeCreate: (student, option) => {
+        if(student.last_name == ''){
+          student.last_name = 'Hacktiv8'
         }
       }
     }
   });
   Student.associate = function(models) {
     // associations can be defined here
+    Student.belongsToMany(models.Subject, {
+      through: models.Student_Subject
+    })
+    Student.hasMany(models.Student_Subject)
   };
   return Student;
 };

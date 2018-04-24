@@ -1,0 +1,32 @@
+<%- include ../partial/header.ejs%>
+
+  <div class="container mt-5">
+    <h2> <%= dataSubjects.subject_name %> </h2>
+    <div class="table-responsive-sm">
+      <table class="table mt-2">
+        <thead class="thead bg-info text-white">
+          <tr>
+            <th>Name</th>
+            <th>Score</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <% dataSubjects.Students.forEach((student, i) => { %>
+            <tr>
+              <td> <%= `${student.first_name} ${student.last_name}` %> </td>
+              <td>
+                <% if( !student.Student_Subject.score ){ %>
+                  <a href="/subjects/<%= dataSubjects.id %>/givescore/<%= student.id %>">Give Score</a>
+                <% } else { %>
+                  <%= student.Student_Subject.score %>
+                <% } %>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+<%- include ../partial/footer.ejs%>
