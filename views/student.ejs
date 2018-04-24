@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>student data</title>
+    <style>
+        table,th,tr ,td{
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Stundents Data</h1>
+        <a href="/students/add">add student</a>
+    </header>
+    <% if(message!=null) { %>
+        <span style="color:red"><%= message %></span>
+    <% } %>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                    <th colspan="2">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% listStudentsData.forEach(function(listStudent) {%>
+                <tr>
+                    <td><%= listStudent.firstName %></td>
+                    <td><%= listStudent.lastName %></td>
+                    <td><%= listStudent.email %></td>
+                    <td><a href="/students/<%= listStudent.id %>/addsubject">Add Subject</a></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    </main>
+</body>
+</html>

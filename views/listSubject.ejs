@@ -1,0 +1,44 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>All Subject Data</title>
+    <style>
+        table, tr, td, th{
+            border: 1px solid #000;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>All Subject Data</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Subject Name</th>
+                <th>Student Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% listSubject.forEach(function(subjectList) {%>
+            <tr>
+                <td><%= subjectList.id %></td>
+                <td><%= subjectList.subjectName %></td>
+                <td>
+                    <ol>
+                    <% subjectList.Students.forEach(function(listStudent){ %>
+                        <li><%= `${listStudent.firstName} ${listStudent.lastName}` %></li>
+                    <% }) %>
+                    </ol>
+                </td>
+                <td><a href="/subjects/<%= subjectList.id %>/enrolledstudents">Enrolled Students</a></td>
+            </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</body>
+</html>

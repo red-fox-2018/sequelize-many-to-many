@@ -1,0 +1,17 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>give score</title>
+</head>
+<body>
+    <h1>Give Score</h1>
+    <h2><%= student.firstName %></h2>
+    <form action="/subjects/<%= student.StudentId %>/givescore/<%= student.SubjectId %>" method="post">
+        <input type="text" name="givescore"/>
+        <br>
+        <input type="submit" value="Give Score" />
+    </form>
+</body>
+</html>

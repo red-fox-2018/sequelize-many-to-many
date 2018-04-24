@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Student Add</title>
+</head>
+<body>
+    <header>
+        <h1>Student Add</h1>
+        <a href="/students">Show all Student</a>
+    </header>
+    <% if(err!=null) { %>
+    <span style="color:red"><%= err %></span>
+    <% } %>
+    <main>
+        <form action="/students/add" method="post">
+            <label>First Name</label>
+            <br>
+            <input type="text" name="firstName" />
+            <br>
+            <label>Last Name</label>
+            <br>
+            <input type="text" name="lastName" />
+            <br>
+            <label>Email</label>
+            <br>
+            <input type="text" name="email" />
+            <br>
+            <input type="submit" value="ADD STUDENT" />
+        </form>
+    </main>
+</body>
+</html>
