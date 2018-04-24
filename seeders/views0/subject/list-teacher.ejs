@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Web School</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/index-style.css">
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="/">Web School</a>
+    </nav>
+
+    <div class="container mt-5">
+      <div class="table-responsive-sm">
+        <table class="table mt-2">
+          <thead class="thead bg-info text-white">
+            <tr>
+              <th>No</th>
+              <th>Name</th>
+              <th>Email</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <% Teachers.forEach((teacher, i) => { %>
+              <tr>
+                <td><%= i+1 %></td>
+                <td> <%= teacher.first_name%> <%= teacher.last_name%></td>
+                <td> <%= teacher.email %> </td>
+              </tr>
+            <% }) %>
+          </tbody>
+        </table>
+      </div>
+        <a href="/subjects" class="btn btn-info">back</a>
+    </div>
+  </body>
+</html>

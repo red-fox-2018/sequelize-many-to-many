@@ -1,0 +1,43 @@
+<%- include ../partial/header.ejs%>
+
+    <div class="container mt-5">
+      <% if(error){ %>
+        <% if(error){ %>
+          <%- include ../partial/error-message.ejs%>
+        <% } %>
+      <% } %>
+      <form action="/teachers/edit/<%= teacher.id %>" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-6">
+            <label for="fname">First Name :</label>
+            <input type="text" id="fname" class="form-control" name="firstname" value="<%= teacher.first_name %>"> <br/>
+          </div>
+
+          <div class="form-group col-md-6">
+            <label for="lname">Last Name :</label>
+            <input type="text" id="lname" class="form-control" name="lastname" value="<%= teacher.last_name %>"> <br/>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email :</label>
+          <input type="text" id="email" class="form-control" name="email" value="<%= teacher.email %>"> <br/>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject :</label>
+          <select name="SubjectId" id="subject" class="custom-select">
+            <option value='' > --- select subject --- </option>
+            <% Subjects.forEach(function(subject) {%>
+               <option value= '<%= subject.id %>' <%= teacherHelpers.selectedForm(subject, teacher.id) %> >
+                 <%= subject.subject_name %>
+               </option>
+            <% }) %>
+          </select>
+        </div>
+
+        <input type="submit" class="btn btn-primary" value="Submit">
+      </form>
+    </div>
+
+<%- include ../partial/footer.ejs%>
