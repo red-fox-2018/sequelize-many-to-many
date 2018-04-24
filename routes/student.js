@@ -67,6 +67,9 @@ router.get('/subjects',function(req,res){
                 {
                     model : Model.Student
                 }
+            ],
+            order :[
+                ['id','ASC']
             ]
         }
     )
@@ -81,14 +84,17 @@ router.get('/subjects/:id/enrolledstudents',function(req,res){
         {
             include:[
                 {
-                    model: Model.Student
-                }
+                    model: Model.Student,
+                },
+                
             ],
-            where: {id:idSubject}
+            where: {id:idSubject},
+            order: [
+                [Model.Student,'id','ASC']
+            ]
         }
     )
     .then(function(subject){
-        //res.send(subject)
         res.render('enrollStudent',{subject})
     })
 })
@@ -115,7 +121,7 @@ router.post('/subjects/:id/givescore/:subjectId',function(req,res){
         {where: { SubjectId: idSubject, StudentId: idStudent }},
     )
     .then(function(){
-        res.redirect(`/subjects`)
+        res.redirect(`/subjects/${idSubject}/enrolledstudents`)
     })
     .catch(function(err){
         res.send(err)
