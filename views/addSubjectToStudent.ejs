@@ -1,0 +1,41 @@
+<% include ./partials/header.ejs%>
+
+<div class="container">
+    <div class="row">
+        <h2>Add Subject to Student</h2>
+        <form action="/students/:id/addsubject" method="POST">
+            <table class="table">
+                <tr>
+                    <td>First name</td>
+                    <td><%= student.first_name%></td>
+                </tr>
+                <tr>
+                    <td>Last name</td>
+                    <td><%= student.last_name%></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><%= student.email%></td>
+                </tr>
+                <tr>
+                    <td colspan=2>Choose Subject</td>
+                </tr>
+                <tr>
+                    <td colspan=2>
+                        <select>
+                            <% subjects.forEach(function(subject){ %>
+                                <option value="<%= subject.name %>"><%= subject.name %></option>
+                            <% }) %>    
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Add Subject"></td>
+                </tr>
+            </table>
+            
+        </form>
+    </div>
+</div>
+
+<% include ./partials/footer.ejs%>
