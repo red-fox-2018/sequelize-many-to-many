@@ -1,0 +1,34 @@
+<%- include('../partials/header.ejs') %>
+
+<h1 class="text-center">Add Teacher Data</h1>
+<h5 class="text-center"><a href="/teachers">Show All Data</a></h5>
+<br>
+
+<%- include('../partials/error.ejs') %>
+
+<form action="/teachers/add" class="form-group" method="POST">
+  <div class="form-group">
+    <label for="inputFirstName">First Name</label>
+    <input type="text" class="form-control" name="first_name" value="" placeholder="Enter first name">
+  </div>
+  <div class="form-group">
+    <label for="inputLastName">Last Name</label>
+    <input type="text" class="form-control" name="last_name" value="" placeholder="Enter last name">
+  </div>
+  <div class="form-group">
+    <label for="InputEmail1">Email address</label>
+    <input type="text" class="form-control" name="email" value="" placeholder="Enter email">
+  </div>
+  <div class="form-group">
+    <label for="optionSubject">Subject</label><br>
+    <select name="SubjectId" class="form-control">
+      <option value=<%= '0' %>>Select subject</option>
+    <% subjects.forEach(subject => { %>
+      <option value=<%= subject.id %>><%= subject.subject_name %></option>
+    <% }) %>
+  </select>
+  </div>
+  <button type="submit" class="btn btn-primary">Add Teacher</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

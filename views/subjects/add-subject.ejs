@@ -1,0 +1,14 @@
+<%- include('../partials/header.ejs') %>
+
+<h1 class="text-center">Add Subject Data</h1>
+<h5 class="text-center"><a href="/subjects">Show All Data</a></h5>
+<br>
+<form action="/subjects/add" class="form-group" method="POST">
+  <div class="form-group">
+    <label for="inputSubjectName">Subject Name</label>
+    <input type="text" class="form-control" name="subject_name" value="" placeholder="Enter subject name">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Subject</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

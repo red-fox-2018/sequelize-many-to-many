@@ -1,0 +1,13 @@
+<%- include('../partials/header.ejs') %>
+
+<h1 class="text-center">Give Score</h1>
+<br>
+<form action="/subjects/<%= SubjectId %>/givescore" class="form-group" method="POST">
+  <div class="form-group">
+    <label for="inputSubjectScore">Score</label>
+    <input type="integer" class="form-control" name="score" value="">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Score</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

@@ -1,0 +1,27 @@
+<%- include('../partials/header.ejs') %>
+
+<div>
+  <h1 class="text-center"><%= subject.subject_name %></h1>
+  <h5 class="text-center"><a href="/subjects">Return to subject list</a></h5>
+
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Score</th>
+    </tr>
+      <% subject.Students.forEach(student => { %>
+        <tr>
+        <td><%= student.id %></td>
+        <td><%= student.first_name %></td>
+        <% if(!student.StudentSubject.score) { %>
+          <td><a href="/subjects/<%= student.StudentSubject.SubjectId %>/givescore" class="btn btn-success">Give score</a></td>
+        <% } else { %>
+          <td><%= student.StudentSubject.score %></td>
+        <% } %>
+      </tr>
+      <% }) %>
+  </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>

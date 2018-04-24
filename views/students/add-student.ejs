@@ -1,0 +1,22 @@
+<%- include('../partials/header.ejs') %>
+
+<h1 class="text-center">Add Students Data</h1>
+<h5 class="text-center"><a href="/students">Show All Data</a></h5>
+<br>
+<form action="/students/add" class="form-group" method="POST">
+  <div class="form-group">
+    <label for="inputFirstName">First Name</label>
+    <input type="text" class="form-control" name="first_name" value="" placeholder="Enter first name">
+  </div>
+  <div class="form-group">
+    <label for="inputLastName">Last Name</label>
+    <input type="text" class="form-control" name="last_name" value="" placeholder="Enter last name">
+  </div>
+  <div class="form-group">
+    <label for="InputEmail1">Email address</label>
+    <input type="email" class="form-control" name="email" value="" placeholder="Enter email">
+  </div>
+  <button type="submit" class="btn btn-primary">Add Student</button>
+</form>
+
+<%- include('../partials/footer.ejs') %>

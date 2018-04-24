@@ -1,0 +1,35 @@
+<%- include('../partials/header.ejs') %>
+
+<div>
+  <h1 class="text-center">All Subjects Data</h1>
+  <h5 class="text-center"><a href="/">Homepage</a></h5>
+  <h5 class="text-center"><a href="/subjects/add">Add Subject</a></h5>
+
+  <table class="table">
+    <tr>
+      <th>Id</th>
+      <th>Subject Name</th>
+      <th>Teacher</th>
+      <th>Action</th>
+      <th>Options</th>
+    </tr>
+    <% subjects.forEach(subject => { %>
+      <tr>
+        <td><%= subject.id %></td>
+        <td><%= subject.subject_name %></td>
+        <td>
+          <% subject.Teachers.forEach((teacher, i) => { %>
+            <%= i+1 %>. <%= teacher.first_name %> <%= teacher.last_name %><br>
+          <% }) %>
+        </td>
+        <td><a href="/subjects/<%= subject.id %>/enrolledstudents" class="btn btn-success">Enrolled Students</a></td>
+        <td>
+          <a href="subjects/edit/<%= subject.id %>" class="btn btn-primary">Edit</a>
+          <a href="subjects/delete/<%= subject.id %>" class="btn btn-danger" onclick="return confirm('delete this subject?')">Delete</a>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</div>
+
+<%- include('../partials/footer.ejs') %>
