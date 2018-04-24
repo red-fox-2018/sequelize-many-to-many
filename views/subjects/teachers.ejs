@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="container">
+    <% include ../partials/header %>
+      <h2>
+        <%= subjectName %>'s Teachers
+      </h2>
+      <hr>
+      <% if (teachers.length) { %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>Name</th>
+              <th>Email</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% teachers.forEach((teacher, index) => { %>
+              <tr>
+                <td>
+                  <%= index + 1 %>
+                </td>
+                <td>
+                  <%= teacher.getTitle() %>
+                </td>
+                <td>
+                  <%= teacher.email %>
+                </td>
+                <td>
+                  <%= teacher.phone %>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+        <% } else { %>
+          <p class="text-muted text-center">This subject doesn't have any Teacher</p>
+          <% } %>
+            <a href="/subjects" class="btn btn-primary">&larr; Back to subjects</a>
+  </div>
+</body>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</html>

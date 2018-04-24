@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="container">
+    <% include ../partials/header %>
+      <h2>
+        Teachers
+        <a href="/teachers/add" class="btn btn-primary pull-right">Add Teacher</a>
+      </h2>
+
+      <hr>
+      <% if (teachers.length) { %>
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>No.</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Gender</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Subject</th>
+              <th class="text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% teachers.forEach((teacher, index) => { %>
+              <tr>
+                <td>
+                  <%= index + 1 %>
+                </td>
+                <td>
+                  <%= teacher.first_name %>
+                </td>
+                <td>
+                  <%= teacher.last_name %>
+                </td>
+                <td>
+                  <%= teacher.gender %>
+                </td>
+                <td>
+                  <%= teacher.email %>
+                </td>
+                <td>
+                  <%= teacher.phone %>
+                </td>
+                <td>
+                  <%= defaultNull(teacher.Subject) %>
+                </td>
+                <td class="text-right">
+                  <a href="/teachers/<%= teacher.id %>/edit" class="btn btn-sm btn-warning">Edit</a>
+                  <a href="/teachers/<%= teacher.id %>/delete" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+        <% } else { %>
+          <p class="text-muted text-center">No data...</p>
+          <% } %>
+  </div>
+</body>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</html>

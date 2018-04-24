@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="container">
+    <% include ../partials/header %>
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="well">
+
+            <h3>Are you sure to delete this subject?</h3>
+
+            <br>
+
+            <form class="form" action="/subjects/<%= subject.id %>/delete" method="POST">
+
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="name">Name Subject</label>
+                    <input type="text" name="name" value="<%= subject.name %>" class="form-control" disabled>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="/subjects" class="btn btn-default">Cancel</a>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+  </div>
+</body>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</html>

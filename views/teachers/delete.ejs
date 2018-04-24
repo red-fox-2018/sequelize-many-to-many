@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body>
+  <div class="container">
+    <% include ../partials/header %>
+      <div class="row">
+
+        <div class="col-md-6">
+
+          <div class="well">
+
+            <h3>Are you sure to delete this teacher?</h3>
+
+            <br>
+
+            <form class="form" action="/teachers/<%= teacher.id %>/delete" method="POST">
+
+
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="name">First Name</label>
+                    <input type="text" name="first_name" value="<%=teacher.first_name%>" class="form-control" disabled>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="name">Last Name</label>
+                    <input type="text" name="last_name" value="<%=teacher.last_name%>" class="form-control" disabled>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <div class="form-control" disabled>
+                      <% if (teacher.gender == 'male') { %>
+                        <label><input type="radio" name="gender" class = "form-group" value="<%=teacher.gender%>"disabled> Male</label> &nbsp; &nbsp; &nbsp;
+                        <% } else if(teacher.gender == 'female') { %>
+                          <label><input type="radio" name="gender" class = "form-group" value="<%=teacher.gender%>" disabled> Female</label>
+                          <% } %>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="SubjectId">Subject</label>
+                <input type="text" name="SubjectId" value="<%= teacher.Subject.name %>" class="form-control" disabled>
+              </div>
+
+
+              <div class="row">
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" name="email" value="<%=teacher.email%>" class="form-control" disabled>
+                  </div>
+                </div>
+                <div class="col-xs-6">
+                  <div class="form-group">
+                    <label for="phone">phone</label>
+                    <input type="text" name="phone" value="<%=teacher.phone%>" class="form-control" disabled>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a href="/teachers" class="btn btn-default">Cancel</a>
+              </div>
+
+            </form>
+
+          </div>
+
+        </div>
+
+      </div>
+  </div>
+</body>
+
+<footer>
+  <% include ../partials/footer %>
+</footer>
+
+</html>
