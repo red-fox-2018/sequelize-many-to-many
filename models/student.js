@@ -76,9 +76,5 @@ module.exports = (sequelize, DataTypes) => {
       return `${this.first_name} ${this.last_name}`;
    };
 
-   // Student.prototype.listSubject = function(id) {
-   //    return this.getSubjects();
-   // };
-
    return Student;
 };
