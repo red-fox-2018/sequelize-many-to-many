@@ -17,30 +17,5 @@ module.exports = (sequelize, DataTypes) => {
       Subject.hasMany(models.StudentSubject);
    };
 
-   // Subject.prototype.listStudents = function() {
-   //    return this.getStudents();
-   // };
-   //
-   // Subject.findAllWithTeachers = function() {
-   //    return new Promise(function(resolve, reject) {
-   //       Subject.findAll({
-   //             order: [
-   //                ['id', 'ASC']
-   //             ]
-   //          })
-   //          .then(subjects => {
-   //             var promises = subjects.map((subject) => {
-   //                return subject.getTeachers()
-   //                   .then(teachers => {
-   //                      subject.teachers = teachers;
-   //                   });
-   //             });
-   //             Promise.all(promises).then(() => {
-   //                resolve(subjects);
-   //             });
-   //          });
-   //    });
-   // };
-
    return Subject;
 };
