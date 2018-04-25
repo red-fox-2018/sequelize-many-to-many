@@ -1,0 +1,25 @@
+<html>
+<head>
+    <title>Add Student Subject</title>
+</head>
+<body>
+    <h1 style="text-align: center">Add Student Subject</h1>
+    <a href="/students"><h3  style="text-align: center">show all data</h3></a>
+    <form action="/students/<%= student_data.id%>/addsubject" method="POST">
+        First name: <%= student_data.first_name%><br>
+        <br>
+        Last name: <%= student_data.last_name%><br>
+        <br>
+        Email: <%= student_data.email%><br>
+        <br>
+        <select name = "SubjectId">
+            <% for (let i = 0; i< subject.length;i++) { %>
+                <option  value="<%= subject[i].id %>"><%= subject[i].subject_name %></option>
+            <% } %>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Add Subject">
+    </form>
+</body>
+</html>

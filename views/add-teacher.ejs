@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>Add Teacher</title>
+</head>
+<body>
+    <h1 style="text-align: center">Add Teachers Data</h1>
+    <a href="/teachers"><h3  style="text-align: center">show all data</h3></a>
+    <% if (err.message != 0) { %>
+        <p style="color:red"> <%=err.message %>
+    <% } %>
+    <form action="/teachers/add-teacher" method="POST">
+        First Name:<br>
+        <input type="text" name="first_name" style="width:50%">
+        <br>
+        Last Name:<br>
+        <input type="text" name="last_name" style="width:50%">
+        <br>
+        Email:<br>
+        <input type="text" name="email" style="width:50%">
+        <br>
+        Subject:
+        <br>
+        <select name = "SubjectId">
+            <% for (let i = 0; i< subject_data.length;i++) { %>
+                <option  value="<%= subject_data[i].id %>"><%= subject_data[i].subject_name %></option>
+            <% } %>
+        </select>
+        <br>
+        <br>
+        <input type="submit" value="Add Teacher">
+    </form>
+</body>
+</html>

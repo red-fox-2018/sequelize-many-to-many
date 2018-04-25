@@ -1,0 +1,28 @@
+<html>
+<head>
+    <title>Students Data</title>
+</head>
+<body>
+    <h1 style="text-align: center">Students Data</h1>
+    <a href="/students/add-student" ><h3 style="text-align: center">add student</h3></a>
+    <table style="width:100%">
+        <tr>
+            <th>id</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Action</th>
+            <th>Options</th>
+        </tr>
+            <% for(let i =0; i< student_data.length; i++){ %>
+                <tr>
+                    <th><%= student_data[i].id%></th>
+                    <th><%= student_data[i].first_name%></th>
+                    <th><%= student_data[i].last_name%></th>
+                    <th><%= student_data[i].email%></th>
+                    <th><a href="/students/<%= student_data[i].id%>/addsubject">Add Subject</a></th>
+                    <th><a href="/students/edit-student/<%= student_data[i].id%>">edit</a> | <a href='/students/delete-student/<%= student_data[i].id %>' onclick="return confirm('delete this student?')"> delete</a>
+            <%}%>
+          </table>
+</body>
+</html>
